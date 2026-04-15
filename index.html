@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Elevator Photo Booth</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div class="main-title"><span>📸</span> Elevator Photo Booth</div>
+  </div>
+
+  <div class="body">
+
+    <!-- TIMER -->
+    <div class="section-label">⏱ Timer</div>
+    <div class="controls" id="timerBtns">
+      <button onclick="setTimer(3, this)" class="active">3 detik</button>
+      <button onclick="setTimer(5, this)">5 detik</button>
+      <button onclick="setTimer(10, this)">10 detik</button>
+    </div>
+
+    <!-- FILTER -->
+    <div class="section-label">🎨 Filter</div>
+    <div class="controls" id="filterBtns">
+      <button onclick="setFilter('none', this)" class="active">Normal</button>
+      <button onclick="setFilter('grayscale(1)', this)">B&W</button>
+      <button onclick="setFilter('sepia(1)', this)">Sepia</button>
+      <button onclick="setFilter('contrast(1.4)', this)">Contrast</button>
+      <button onclick="setFilter('brightness(1.3)', this)">Bright</button>
+      <button onclick="setFilter('saturate(1.8)', this)">Vivid</button>
+      <button onclick="setFilter('hue-rotate(90deg)', this)">Cool</button>
+      <button onclick="setFilter('hue-rotate(-90deg)', this)">Warm</button>
+      <button onclick="setFilter('blur(2px)', this)">Soft</button>
+      <button onclick="setFilter('invert(1)', this)">Invert</button>
+      <button onclick="setFilter('contrast(1.2) brightness(1.1) sepia(0.3)', this)">Vintage</button>
+      <button onclick="setFilter('contrast(1.5) brightness(1.2) saturate(1.5)', this)">Korea</button>
+    </div>
+
+    <!-- SHOTS -->
+    <div class="section-label">📷 Jumlah Foto</div>
+    <div class="controls" id="shotBtns">
+      <button onclick="setShots(3, this)">3 foto</button>
+      <button onclick="setShots(4, this)" class="active">4 foto</button>
+    </div>
+
+    <!-- HD STATUS -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px;">
+      <div class="section-label" style="margin:0">📷 Kamera</div>
+      <div class="hd-badge"><div class="hd-dot"></div> HD AKTIF</div>
+    </div>
+
+    <!-- VIDEO -->
+    <div class="video-wrapper">
+      <video id="video" autoplay playsinline></video>
+      <div id="countdown" class="countdown"></div>
+      <div id="flashOverlay" class="flash-overlay"></div>
+    </div>
+
+    <!-- DOTS -->
+    <div class="photo-count" id="photoDots"></div>
+    <div class="status-msg" id="statusMsg"></div>
+
+    <button class="capture-btn" id="captureBtn" onclick="startCapture()">✨ Mulai Ambil Foto</button>
+
+    <div class="progress-bar-wrap" id="progressWrap">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div id="result"></div>
+
+    <button class="download-btn" id="downloadBtn" onclick="downloadStrip()" style="display:none">⬇ Download Strip</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
